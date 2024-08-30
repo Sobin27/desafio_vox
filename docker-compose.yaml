@@ -28,7 +28,6 @@ services:
       - "5432:5432"
     networks:
       - desafio_vox_network
-
 networks:
   desafio_vox_network:
     driver: bridge

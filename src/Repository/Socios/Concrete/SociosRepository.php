@@ -56,8 +56,7 @@ class SociosRepository extends EntityManagerService implements ISociosRepository
     public function listSocios(): array
     {
         return $this->entityManager->createQuery(
-            'SELECT s.id, s.name, s.cpf, s.cpf, e.nome_fantasia FROM App\Entity\Socios s
-            join s.empresa e
+            'SELECT s FROM App\Entity\Socios s
             ORDER BY e.id ASC'
         )->getResult();
     }
