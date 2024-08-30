@@ -33,7 +33,7 @@ class SociosRepository extends EntityManagerService implements ISociosRepository
     public function findByCpf(string $cpf): array
     {
         return $this->entityManager->createQuery(
-            'SELECT s FROM App\Entity\Socios s WHERE e.cpf = :cpf'
+            'SELECT s FROM App\Entity\Socios s WHERE s.cpf = :cpf'
         )->setParameter('cpf', $cpf)->getResult();
     }
 

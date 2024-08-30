@@ -6,10 +6,10 @@ use App\Entity\Empresas;
 
 interface IEmpresasRepository
 {
-    public function create(EmpresaDto $empresaDto): bool;
+    public function createEmpresa(EmpresaDto $empresaDto): bool;
     public function findByCnpj(string $cnjp): array;
     public function findById(int $id): Empresas;
-    public function update(Empresas $empresas): bool;
-    public function list(): array;
-    public function delete(Empresas $empresas): bool;
+    public function updateEmpresa(Empresas $empresas): bool;
+    public function listEmpresas(): array;
+    public function deleteEmpresa(Empresas $empresas): bool;
 }

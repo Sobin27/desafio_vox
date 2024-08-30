@@ -24,20 +24,12 @@ services:
     # please note that last definitions always *replace* previous ones
     App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaCreateService:
         class: App\ApiResource\Domain\Empresas\Services\Concrete\EmpresaCreateService
-        tags:
-            - { name: 'App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaCreateService' }
     App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaUpdateService:
         class: App\ApiResource\Domain\Empresas\Services\Concrete\EmpresaUpdateService
-        tags:
-            - { name: 'App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaUpdateService' }
     App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaListService:
         class: App\ApiResource\Domain\Empresas\Services\Concrete\EmpresaListService
-        tags:
-            - { name: 'App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaListService' }
     App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaDeleteService:
         class: App\ApiResource\Domain\Empresas\Services\Concrete\EmpresaDeleteService
-        tags:
-            - { name: 'App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaDeleteService' }
     App\ApiResource\Domain\Socios\Services\Abstract\ISocioCreateService:
         class: App\ApiResource\Domain\Socios\Services\Concrete\SocioCreateService
     App\ApiResource\Domain\Socios\Services\Abstract\ISocioUpdateService:

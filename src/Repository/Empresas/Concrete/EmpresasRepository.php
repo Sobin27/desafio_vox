@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Repository\Empresas\Concrete;
 
 use App\ApiResource\Dto\EmpresaDto;
@@ -16,7 +15,7 @@ use Symfony\Component\HttpKernel\Log\Logger;
  */
 class EmpresasRepository extends EntityManagerService implements IEmpresasRepository
 {
-    public function create(EmpresaDto $empresaDto): bool
+    public function createEmpresa(EmpresaDto $empresaDto): bool
     {
         try {
             $empresas = new Empresas();
@@ -37,7 +36,7 @@ class EmpresasRepository extends EntityManagerService implements IEmpresasReposi
             'SELECT e FROM App\Entity\Empresas e WHERE e.cnpj = :cnpj'
         )->setParameter('cnpj', $cnjp)->getResult();
     }
-    public function update(Empresas $empresas): bool
+    public function updateEmpresa(Empresas $empresas): bool
     {
         try {
             $this->entityManager->persist($empresas);
@@ -53,7 +52,7 @@ class EmpresasRepository extends EntityManagerService implements IEmpresasReposi
         return $this->entityManager->find(Empresas::class, $id);
     }
 
-    public function list(): array
+    public function listEmpresas(): array
     {
         return $this->entityManager->createQuery(
             'SELECT e FROM App\Entity\Empresas e
@@ -61,7 +60,7 @@ class EmpresasRepository extends EntityManagerService implements IEmpresasReposi
         )->getResult();
     }
 
-    public function delete(Empresas $empresas): bool
+    public function deleteEmpresa(Empresas $empresas): bool
     {
         try {
             $this->entityManager->remove($empresas);

@@ -8,7 +8,6 @@ use App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaUpdateService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -23,7 +22,7 @@ class EmpresasController extends AbstractController
     )
     { }
 
-    #[Route('api/empresas/create', name: 'create_empresa', methods: ['POST'])]
+    #[Route('api/empresa/create', name: 'create_empresa', methods: ['POST'])]
     public function create(Request $request): Response
     {
         try {
@@ -36,7 +35,7 @@ class EmpresasController extends AbstractController
             return new Response($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-    #[Route('api/empresas/update', name: 'update_empresa', methods: ['PUT'])]
+    #[Route('api/empresa/update', name: 'update_empresa', methods: ['PUT'])]
     public function update(Request $request): Response
     {
         try {
@@ -49,22 +48,20 @@ class EmpresasController extends AbstractController
             return new Response($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-    #[Route('api/empresas/list', name: 'list_empresa', methods: ['GET'])]
+    #[Route('api/empresa/list', name: 'list_empresa', methods: ['GET'])]
     public function list(SerializerInterface $serializer): Response
     {
         try {
-            $empresas = $this->empresaListService->listEmpresas();
-            $data = $serializer->normalize($empresas, null, ['groups' => 'list_empresa']);
             return new JsonResponse(
-                data: $data,
+                data: $this->empresaListService->listEmpresas(),
                 status: Response::HTTP_OK,
-                headers: ['message' => 'Listagem de emrepsas feita com sucesso']
+                headers: ['message' => 'Listagem de empresas feita com sucesso']
             );
         }catch (\Exception $e) {
             return new Response($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-    #[Route('api/empresas/delete/{id}', name: 'delete_empresa', methods: ['DELETE'])]
+    #[Route('api/empresa/delete/{id}', name: 'delete_empresa', methods: ['DELETE'])]
     public function delete(int $id): Response
     {
         try {

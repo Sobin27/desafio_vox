@@ -18,7 +18,7 @@ class EmpresaCreateService implements IEmpresaCreateService
     {
         $this->validateRequest($request);
         $this->checkIfCnpjExists();
-        return $this->empresasRepository->create($this->dto);
+        return $this->empresasRepository->createEmpresa($this->dto);
     }
     private function validateRequest(Request $request): void
     {

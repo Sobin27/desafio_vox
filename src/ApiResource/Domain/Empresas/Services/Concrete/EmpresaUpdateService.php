@@ -17,7 +17,7 @@ class EmpresaUpdateService implements IEmpresaUpdateService
     {
         $this->setEmpresa($request->toArray()['id']);
         $this->setResquest($request);
-        return $this->empresasRepository->update($this->empresas);
+        return $this->empresasRepository->updateEmpresa($this->empresas);
     }
     private function setResquest(Request $request): void
     {

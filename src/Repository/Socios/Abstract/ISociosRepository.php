@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Repository\Socios\Abstract;
 
 use App\ApiResource\Dto\SocioDto;

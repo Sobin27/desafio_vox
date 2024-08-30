@@ -16,7 +16,7 @@ class EmpresaDeleteService implements IEmpresaDeleteService
     public function deleteEmpresa(int $id): bool
     {
         $this->setEmpresa($id);
-        return $this->empresaRepository->delete($this->empresas);
+        return $this->empresaRepository->deleteEmpresa($this->empresas);
     }
     private function setEmpresa(int $id): void
     {
