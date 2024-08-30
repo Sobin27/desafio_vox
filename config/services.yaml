@@ -38,7 +38,15 @@ services:
         class: App\ApiResource\Domain\Empresas\Services\Concrete\EmpresaDeleteService
         tags:
             - { name: 'App\ApiResource\Domain\Empresas\Services\Abstract\IEmpresaDeleteService' }
+    App\ApiResource\Domain\Socios\Services\Abstract\ISocioCreateService:
+        class: App\ApiResource\Domain\Socios\Services\Concrete\SocioCreateService
+    App\ApiResource\Domain\Socios\Services\Abstract\ISocioUpdateService:
+        class: App\ApiResource\Domain\Socios\Services\Concrete\SocioUpdateService
+    App\ApiResource\Domain\Socios\Services\Abstract\ISocioListService:
+        class: App\ApiResource\Domain\Socios\Services\Concrete\SocioListService
+    App\ApiResource\Domain\Socios\Services\Abstract\ISocioDeleteService:
+        class: App\ApiResource\Domain\Socios\Services\Concrete\SocioDeleteService
     App\Repository\Empresas\Abstract\IEmpresasRepository:
         class:  App\Repository\Empresas\Concrete\EmpresasRepository
-        tags:
-            - { name: 'App\Repository\Empresas\Concrete\EmpresasRepository' }
+    App\Repository\Socios\Abstract\ISociosRepository:
+        class: App\Repository\Socios\Concrete\SociosRepository

@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Repository\SociosRepository;
+use App\Repository\Socios\Concrete\SociosRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: SociosRepository::class)]
 #[ApiResource]
@@ -13,18 +14,23 @@ class Socios
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['list_socios'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['list_socios'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['list_socios'])]
     private ?string $cpf = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['list_socios'])]
     private ?string $email = null;
 
     #[ORM\ManyToOne(inversedBy: 'socios')]
+    #[Groups(['list_socios'])]
     private ?Empresas $empresa = null;
 
     public function getId(): ?int
