@@ -7,7 +7,7 @@ Para instalar o projeto, siga os passos abaixo:
 
 1. Clone o repositório
 ```bash
-https://gitlab.com/teste6393635/desafio_vox.git
+git clone https://gitlab.com/teste6393635/desafio_vox.git
 ```
 2. Acesse a pasta do projeto
 ```bash
@@ -15,12 +15,11 @@ cd desafio_vox
 ```
 Após fazer o clone do projeto, você pode começar a configurar o seu ambiente de desenvolvimento:
 
-3. Após acessar a pasta do projeto, você ira conseguir identificar que exsite um docker-compose.yaml
-no projeto, com isso você pode subir o ambiente de desenvolvimento com o comando abaixo:
+3. Após acessar a pasta do projeto, você irá conseguir identificar que existe um docker-compose.yaml no projeto, com isso você pode subir o ambiente de desenvolvimento com os comandos abaixo:
 ```bash
 sudo docker-compose up --build -d
 ```
-Após o carregamento dos containers, você precisara entrar no container do serviço backend para poder rodar as migrations necessárias.
+Após o carregamento dos containers você precisará entrar no container do serviço backend para conseguir rodar as migrations necessárias.
 
 * Ambiente Linux:
 1. Acesse o container do serviço backend
@@ -32,19 +31,23 @@ sudo docker exec -it desafio_vox_backend bash
 php bin/console doctrine:migrations:migrate
 ```
 * Ambiente Windows:
-1. Acesse o container do serviço backend atráves do Docker setup, estara mais ou menos assim:
-Clique nos 3 pontinhos do container backend e clique em "Open in terminal"
+1. Acesse o container do serviço backend atráves do Docker setup e terá está tela apresentada, clique nos 3 pontos do container backend e depois em "Open in terminal"
 ![img.png](img.png)
 2. Após entrar no terminal do container, rode as migrations
 ```bash
 php bin/console doctrine:migrations:migrate
 ```
 
-Pronto, agora seu ambiente ja está configurado e pronto para ser utilizado.
+Pronto, agora seu ambiente já está configurado para ser utilizado.
+E não precisa se preocupar com as conexões do banco, elas ja foram feitas atráves do .env, caso queira acessar o  banco é só utilizar as credenciais nos campos abaixo:
+DB_NAME, 
+DB_USER, 
+DB_PASSWORD
+e o host é localhost.
 
 ## Utilização
 
-Para testar os endpoints sugiro que utilize o Postman, ou algum outro software de sua preferência.
+Para testar os endpoints você pode usar o software de sua preferência, mas sugiro que utilize o Postman.
 
 * CRUD de Empresas
 1. Criar uma empresa
@@ -119,8 +122,7 @@ Body:
     "empresa_id": 1
 }
 ```
-Detalhe importante, só conseguira criar um sócio se a empresa_id existir no banco de dados.
-Com isso, você terá um retorno como true e status code de 201
+Detalhe importante, você só conseguirá criar um sócio se a empresa_id existir no banco de dados. Com isso, você terá um retorno como true e status code de 201
 
 2. Listar todos os sócios
 

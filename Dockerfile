@@ -57,6 +57,6 @@ RUN chown -R nginx:nginx /app
 COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/nginx/app.conf /etc/nginx/conf.d/app.conf
 
-COPY ./docker/docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+#COPY ./docker/docker-entrypoint.sh /docker-entrypoint.sh
+#RUN chmod +x /docker-entrypoint.sh
+#ENTRYPOINT ["/docker-entrypoint.sh"]

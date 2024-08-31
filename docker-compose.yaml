@@ -15,6 +15,8 @@ services:
       - desafio_vox_network
     volumes:
       - .:/app
+    command: >
+      sh -c "php-fpm82 -F & nginx -g 'daemon off;'"
   db:
     image: postgres:alpine
     container_name: desafio_vox_db
